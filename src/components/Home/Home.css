@@ -1,0 +1,10 @@
+.search-box{
+    display: flex;
+}
+.search-box button{
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 3px;
+    width: 150px;
+    color: white;
+}

@@ -1,0 +1,19 @@
+.product-form{
+    background-color: rgb(245, 244, 244);
+    border-radius: 10px;
+    padding: 10px;
+}
+.product-form input{
+    width: 90%;
+    height: 35px;
+    border: 1px solid lightgray;
+}
+#product-save-btn{
+    background-color: green;
+    border: 1px solid green;
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 15px;
+    color: white;
+}
