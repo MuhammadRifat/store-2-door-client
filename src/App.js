@@ -12,7 +12,9 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
+import Orders from "./components/Orders/Orders";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Shipment from "./components/Shipment/Shipment";
 
 export const userContext = createContext();
 
@@ -26,14 +28,20 @@ function App() {
           <Route path="/home">
             <Home/>
           </Route>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <Admin/>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login/>
           </Route>
-          <PrivateRoute path="/checkout">
+          <PrivateRoute path="/checkout/:productId">
             <CheckOut/>
+          </PrivateRoute>
+          <Route path="/shipment">
+            <Shipment/>
+          </Route>
+          <PrivateRoute path="/orders">
+            <Orders/>
           </PrivateRoute>
           <Route exact path="/">
             <Home/>

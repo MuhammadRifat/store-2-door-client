@@ -9,7 +9,7 @@ const Home = () => {
 
     useEffect(() => {
         setSpinner(true);
-        fetch('http://localhost:5000/')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -29,7 +29,7 @@ const Home = () => {
             }
             <Row className="mt-4">
                 {
-                    products?.map(pd => <Product product={pd}></Product>)
+                    products?.map(pd => <Product product={pd} key={pd._id}></Product>)
                 }
             </Row>
         </Container>

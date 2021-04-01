@@ -15,7 +15,6 @@ const AddProduct = () => {
             price: data.price,
             imageURL: imageURL
         };
-        console.log(productData);
 
         fetch(`http://localhost:5000/addProduct`, {
             method: 'POST',
@@ -48,24 +47,6 @@ const AddProduct = () => {
     }
     return (
         <Container>
-            {/* <Form>
-                <Row>
-                    <Col md={6}>
-                        <Form.Control placeholder="Enter Name" />
-                    </Col>
-                    <Col md={6}>
-                        <Form.Control placeholder="Enter Weight" />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={6}>
-                        <Form.Control placeholder="Enter Price" />
-                    </Col>
-                    <Col md={6}>
-                        <Form.Control placeholder="Enter Weight" />
-                    </Col>
-                </Row>
-            </Form> */}
             <h2>Add Product</h2><hr />
 
             <div className="product-form">
@@ -73,21 +54,21 @@ const AddProduct = () => {
                     <Row>
                         <Col md={6}>
                             <b>Product Name:</b><br />
-                            <input name="pName" defaultValue="" ref={register} />
+                            <input name="pName" defaultValue="" ref={register} required/>
                         </Col>
                         <Col md={6}>
                             <b>Weight:</b><br />
-                            <input name="weight" defaultValue="" ref={register} />
+                            <input name="weight" defaultValue="" ref={register} required/>
                         </Col>
                     </Row>
                     <Row className="mt-3">
                         <Col md={6}>
                             <b>Price:</b><br />
-                            <input name="price" defaultValue="" ref={register} />
+                            <input name="price" defaultValue="" ref={register} required/>
                         </Col>
                         <Col md={6}>
                             <b>Add Photo:</b><br />
-                            <input name="product-image" type="file" onChange={handleImageUpload} />
+                            <input name="product-image" type="file" onChange={handleImageUpload} ref={register} required/>
                         </Col>
                     </Row>
                     <button id="product-save-btn" type="submit">Save</button>

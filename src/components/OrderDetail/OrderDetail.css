@@ -1,0 +1,8 @@
+.order-data{
+    display: flex;
+    border: 1px solid lightgray;
+}
+.order-data img{
+    width: 100px;
+    height: 100px;
+}
