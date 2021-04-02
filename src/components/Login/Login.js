@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
@@ -161,7 +161,7 @@ const Login = () => {
         <Container>
             <Row className="justify-content-md-center">
                 <Col md={6} className="mt-4">
-                    <div className="p-4" style={{border:'2px solid lightgray', borderRadius:'5px'}}>
+                    <div className="bg-white p-4" style={{border:'2px solid lightgray', borderRadius:'5px'}}>
                         {newUser ? <h4>Create an account</h4> : <h4>Log In</h4>}
                         {
                             user.error && <h6 style={{color: 'red', textAlign: 'center', marginTop:'10px'}}>{user.error}</h6>

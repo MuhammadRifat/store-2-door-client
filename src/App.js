@@ -2,10 +2,8 @@ import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import AddProduct from "./components/AddProduct/AddProduct";
 import Admin from "./components/Admin/Admin";
 import CheckOut from "./components/CheckOut/CheckOut";
 import Header from "./components/Header/Header";

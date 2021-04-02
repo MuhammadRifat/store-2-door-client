@@ -12,7 +12,7 @@ const CheckOut = () => {
         fetch(`http://localhost:5000/product/${productId}`)
             .then(res => res.json())
             .then(data => setCartProduct(data))
-    }, [])
+    }, [productId])
 
     const history = useHistory();
     const handleCheckout = () => {
@@ -22,9 +22,9 @@ const CheckOut = () => {
     }
     return (
         <Container>
-            <h2>Checkout</h2>
+            <h2 className="mt-3">Checkout</h2><hr/>
 
-            <Table responsive="md">
+            <Table responsive="md" className="mt-3 border bg-white">
                 <thead>
                     <tr>
                         <th>Description</th>

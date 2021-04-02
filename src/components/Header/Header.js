@@ -3,6 +3,7 @@ import { Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { userContext } from '../../App';
 import './Header.css';
+import logo from '../../default-monochrome.svg';
 
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
@@ -10,7 +11,7 @@ const Header = () => {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="#">
             <img
-                src=""
+                src={logo}
                 width="200px"
                 className="d-inline-block align-top"
                 alt="Store 2 Door"

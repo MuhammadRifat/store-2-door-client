@@ -11,7 +11,7 @@ const Product = ({ product }) => {
     }
     return (
         <Col lg={3}>
-            <div className="product">
+            <div className="product bg-white">
                 <img src={imageURL} alt="" />
                 <h5>{pName}- {weight}</h5>
                 <div className="product-footer">

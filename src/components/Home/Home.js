@@ -16,6 +16,7 @@ const Home = () => {
                 setSpinner(false);
             })
     }, [])
+    document.body.style.backgroundColor = 'rgb(241, 239, 239)';
     return (
         <Container>
             <Row className="justify-content-md-center mt-5">

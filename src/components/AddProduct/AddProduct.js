@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import './AddProduct.css';
 
 const AddProduct = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
     const [imageURL, setIMageURL] = useState(null);
 
     const onSubmit = data => {
@@ -49,29 +49,29 @@ const AddProduct = () => {
         <Container>
             <h2>Add Product</h2><hr />
 
-            <div className="product-form">
+            <div className="product-form bg-white">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Row>
                         <Col md={6}>
                             <b>Product Name:</b><br />
-                            <input name="pName" defaultValue="" ref={register} required/>
+                            <input name="pName" defaultValue="" ref={register} placeholder="Enter product name" required/>
                         </Col>
                         <Col md={6}>
                             <b>Weight:</b><br />
-                            <input name="weight" defaultValue="" ref={register} required/>
+                            <input name="weight" defaultValue="" ref={register} placeholder="Enter weight" required/>
                         </Col>
                     </Row>
                     <Row className="mt-3">
                         <Col md={6}>
                             <b>Price:</b><br />
-                            <input name="price" defaultValue="" ref={register} required/>
+                            <input name="price" defaultValue="" ref={register} placeholder="Enter price" required/>
                         </Col>
                         <Col md={6}>
                             <b>Add Photo:</b><br />
                             <input name="product-image" type="file" onChange={handleImageUpload} ref={register} required/>
                         </Col>
                     </Row>
-                    <button id="product-save-btn" type="submit">Save</button>
+                    <div className="text-center"><button id="product-save-btn" type="submit">Save</button></div>
                 </form>
             </div>
         </Container>

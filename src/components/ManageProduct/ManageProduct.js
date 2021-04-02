@@ -15,7 +15,7 @@ const ManageProduct = () => {
     return (
         <Container>
             <h2>Manage Product</h2><hr/>
-            <Table striped responsive="md">
+            <Table responsive="md" className="bg-white border">
                 <thead>
                     <tr>
                         <th>Product Name</th>
