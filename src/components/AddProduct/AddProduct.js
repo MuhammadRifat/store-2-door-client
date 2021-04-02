@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import './AddProduct.css';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const [imageURL, setIMageURL] = useState(null);
+    const [spinner, setSpinner] = useState(false);
 
     const onSubmit = data => {
+        setSpinner(true);
         const productData = {
             pName: data.pName,
             weight: data.weight,
@@ -26,8 +28,10 @@ const AddProduct = () => {
         })
             .then(res => {
                 if (res) {
+                    setSpinner(false);
                     alert("Product added Successfully!");
                 }
+                setSpinner(false);
             })
     };
 
@@ -52,6 +56,9 @@ const AddProduct = () => {
         <Container>
             <h2>Add Product</h2><hr />
 
+            {
+                spinner && <div className="text-center mt-3"><Spinner animation="border" /></div>
+            }
             <div className="product-form bg-white">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Row>

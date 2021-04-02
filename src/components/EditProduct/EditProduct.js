@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router';
 
 const EditProduct = () => {
     const { register, handleSubmit } = useForm();
     const [product, setProduct] = useState({});
+    const [spinner, setSpinner] = useState(false);
     const {id} = useParams();
 
     // Get product from database when user want to edit product
@@ -17,6 +18,7 @@ const EditProduct = () => {
 
     // Form data after editing
     const onSubmit = data => {
+        setSpinner(true);
         const productData = {
             pName: data.pName,
             weight: data.weight,
@@ -31,14 +33,19 @@ const EditProduct = () => {
         })
         .then(res => {
             if(res){
+                setSpinner(false);
                 alert("Product Updated Successfully!");
             }
+            setSpinner(false);
         })
     };
     return (
         <Container>
             <h2>Edit Product</h2><hr />
 
+            {
+                spinner && <div className="text-center mt-3"><Spinner animation="border" /></div>
+            }
             <div className="product-form bg-white">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Row>
