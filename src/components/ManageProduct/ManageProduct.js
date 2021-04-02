@@ -7,9 +7,10 @@ const ManageProduct = () => {
     const [products, setProducts] = useState([]);
     const [spinner, setSpinner] = useState(false);
 
+    // Load all products for manage
     useEffect(() => {
         setSpinner(true);
-        fetch('http://localhost:5000/products')
+        fetch('https://pumpkin-pudding-55877.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -17,11 +18,12 @@ const ManageProduct = () => {
             })
     }, [])
 
+    // For deleting product by id
     const handleDelete = (id) => {
         const newProducts = products.filter(product => product._id != id);
         setProducts(newProducts);
 
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://pumpkin-pudding-55877.herokuapp.com/deleteProduct/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

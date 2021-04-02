@@ -8,12 +8,14 @@ const EditProduct = () => {
     const [product, setProduct] = useState({});
     const {id} = useParams();
 
+    // Get product from database when user want to edit product
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://pumpkin-pudding-55877.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id])
 
+    // Form data after editing
     const onSubmit = data => {
         const productData = {
             pName: data.pName,
@@ -21,7 +23,8 @@ const EditProduct = () => {
             price: data.price
         };
         
-        fetch(`http://localhost:5000/updateProduct/${id}`, {
+        // Update editing product
+        fetch(`https://pumpkin-pudding-55877.herokuapp.com/updateProduct/${id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(productData)

@@ -10,9 +10,10 @@ const Home = () => {
     const [spinner, setSpinner] = useState(false);
     const [searchText, setSearchText] = useState({});
 
+    // Load all products from database
     useEffect(() => {
         setSpinner(true);
-        fetch('http://localhost:5000/products')
+        fetch('https://pumpkin-pudding-55877.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -20,10 +21,11 @@ const Home = () => {
             })
     }, [])
 
+    // For getting searching results
     const handleSearchBtn = () => {
         setSpinner(true);
         if(searchText){
-            fetch(`http://localhost:5000/searchProducts/${searchText}`)
+            fetch(`https://pumpkin-pudding-55877.herokuapp.com/searchProducts/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

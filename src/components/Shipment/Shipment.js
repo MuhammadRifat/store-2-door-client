@@ -9,7 +9,10 @@ const Shipment = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [spinner, setSpinner] = useState(false);
 
+    // Using react form hook
     const { register, handleSubmit, errors } = useForm();
+
+    // For adding order product and customer details into the database
     const onSubmit = data => {
         const customerData = {
             name: data.name,
@@ -19,7 +22,8 @@ const Shipment = () => {
         };
         const customerDetails = { ...loggedInUser, shipment: customerData, orderTime: new Date() };
         setSpinner(true);
-        fetch('http://localhost:5000/addOrder', {
+        
+        fetch('https://pumpkin-pudding-55877.herokuapp.com/addOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

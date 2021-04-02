@@ -9,10 +9,12 @@ const Orders = () => {
     const [ordersData, setOrdersData] = useState([]);
     const [spinner, setSpinner] = useState(false);
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
+
+    // Load all orders of loggedIn user
     useEffect(() => {
         setSpinner(true);
         const email = loggedInUser.email;
-        fetch(`http://localhost:5000/orders/${email}`)
+        fetch(`https://pumpkin-pudding-55877.herokuapp.com/orders/${email}`)
             .then(res => res.json())
             .then(data => {
                 setOrdersData(data);
@@ -20,11 +22,12 @@ const Orders = () => {
             })
     }, [loggedInUser.email])
 
+    // For deleting order from database
     const handleRemoveBtn = id => {
         const newOrdersData = ordersData.filter(order => order._id != id);
         setOrdersData(newOrdersData);
 
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://pumpkin-pudding-55877.herokuapp.com/deleteOrder/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,6 +41,8 @@ const Orders = () => {
     }
 
     const totalItems = ordersData.length;
+    
+    // To use sum of all orders product
     const subTotal = ordersData.reduce((sum, order) => sum + Number(order.product.price), 0);
     const shippingFee = subTotal * .05;
     const total = subTotal + shippingFee;

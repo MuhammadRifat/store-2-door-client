@@ -25,6 +25,7 @@ const Header = () => {
                 <Link className="link" to="/orders">Orders </Link>
                 <Link className="link" to="/admin">Admin </Link>
                 <Link className="link" to="/deals">Deals </Link>
+                {/* Dynamically change login button to user image */}
                 {
                     loggedInUser.email ? <Image src={loggedInUser.photo} alt={loggedInUser.name} style={{width:'40px', height:'40px', marginRight:'60px'}} roundedCircle/> : <Link className="link" to="/login"><button id="login-btn">Login</button></Link>
                 }

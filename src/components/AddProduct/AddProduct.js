@@ -16,7 +16,8 @@ const AddProduct = () => {
             imageURL: imageURL
         };
 
-        fetch(`http://localhost:5000/addProduct`, {
+        // add product in database
+        fetch(`https://pumpkin-pudding-55877.herokuapp.com/addProduct`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -30,11 +31,13 @@ const AddProduct = () => {
             })
     };
 
+    // For uploading product image in imgbb website
     const handleImageUpload = event => {
         const imageData = new FormData();
         imageData.set('key', 'c4ebb744a3b647feb62c85c668dcb1fa');
         imageData.append('image', event.target.files[0]);
 
+        // upload image and generate a unique image url
         axios.post('https://api.imgbb.com/1/upload',
             imageData)
             .then(function (response) {

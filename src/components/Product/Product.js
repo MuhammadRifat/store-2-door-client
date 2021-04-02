@@ -6,6 +6,8 @@ import './Product.css';
 const Product = ({ product }) => {
     const { pName, weight, price, imageURL } = product;
     const history = useHistory();
+
+    // handling buy now button and going to checkout page with selected product id
     const handleBuyNow = (product) => {
         history.push(`/checkout/${product._id}`);
     }

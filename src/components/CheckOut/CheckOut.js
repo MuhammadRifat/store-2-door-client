@@ -8,8 +8,10 @@ const CheckOut = () => {
     const { productId } = useParams();
     const [cartProduct, setCartProduct] = useState({});
     const {pName, price, weight} = cartProduct;
+
+    // get selected product from database
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${productId}`)
+        fetch(`https://pumpkin-pudding-55877.herokuapp.com/product/${productId}`)
             .then(res => res.json())
             .then(data => setCartProduct(data))
     }, [productId])

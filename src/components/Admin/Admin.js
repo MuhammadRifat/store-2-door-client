@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTasks, faPlus, faEdit, faFileMedicalAlt } from '@fortawesome/free-solid-svg-icons'
 import EditProduct from "../EditProduct/EditProduct";
 
+// For creating sidenav with react router
 const routes = [
     {
         path: "/admin",
