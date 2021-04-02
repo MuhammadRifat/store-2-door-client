@@ -9,6 +9,9 @@ import {
 } from "react-router-dom";
 import AddProduct from "../AddProduct/AddProduct";
 import ManageProduct from "../ManageProduct/ManageProduct";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTasks, faPlus, faEdit, faFileMedicalAlt } from '@fortawesome/free-solid-svg-icons'
+import EditProduct from "../EditProduct/EditProduct";
 
 const routes = [
     {
@@ -29,9 +32,9 @@ const routes = [
         main: () => <AddProduct/>
     },
     {
-        path: "/admin/edit-product",
+        path: "/admin/edit-product/:id",
         sidebar: () => "",
-        main: () => <h2>Edit Product</h2>
+        main: () => <EditProduct/>
     }
 ];
 
@@ -40,29 +43,22 @@ const Admin = () => {
         <Router>
             <Container fluid>
                 <Row>
-                    <Col md={2}>
-                        <div className="admin-menu">
-                        <ul style={{ listStyleType: "none", padding: 0 }}>
-                            <li>
-                                <Link to="/admin/manage-product">Manage Product</Link>
-                            </li>
-                            <li>
-                                <Link to="/admin/add-product">Add Product</Link>
-                            </li>
-                            <li>
-                                <Link to="/admin/edit-product">Edit Product</Link>
-                            </li>
+                    <Col md={2} className="admin-menu">
+                        <div>
+                        <ul className="mt-4" style={{ listStyleType: "none", padding: 0 }}>
+                        <Link className="link"  to="/admin/manage-product">
+                            <li><FontAwesomeIcon icon={faTasks} /> Manage Product</li>
+                        </Link>
+                        <Link className="link"  to="/admin/add-product">
+                            <li><FontAwesomeIcon icon={faPlus} /> Add Product</li>
+                        </Link>
+                        <Link className="link"  to="/admin/manage-product/">
+                            <li><FontAwesomeIcon icon={faEdit} /> Edit Product</li>
+                        </Link>
                         </ul>
 
                         <Switch>
                             {routes.map((route, index) => (
-                                // You can render a <Route> in as many places
-                                // as you want in your app. It will render along
-                                // with any other <Route>s that also match the URL.
-                                // So, a sidebar or breadcrumbs or anything else
-                                // that requires you to render multiple things
-                                // in multiple places at the same URL is nothing
-                                // more than multiple <Route>s.
                                 <Route
                                     key={index}
                                     path={route.path}

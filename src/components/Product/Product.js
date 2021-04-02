@@ -13,7 +13,7 @@ const Product = ({ product }) => {
         <Col lg={3}>
             <div className="product bg-white">
                 <img src={imageURL} alt="" />
-                <h5>{pName}- {weight}</h5>
+                <h6>{pName}- {weight}</h6>
                 <div className="product-footer">
                     <h4>${price}</h4>
                     <button className="ml-auto buy-now-btn" onClick={() => handleBuyNow(product)}>Buy Now</button>

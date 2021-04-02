@@ -2,10 +2,10 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import './OrderDetail.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faPhoneAlt, faClock } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faPhoneAlt, faClock, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-const OrderDetail = ({order}) => {
-    const {product, shipment, orderTime} = order;
+const OrderDetail = ({order, handleRemoveBtn}) => {
+    const {_id, product, shipment, orderTime} = order;
     return (
         <Row className="mb-3">
             <Col>
@@ -18,7 +18,8 @@ const OrderDetail = ({order}) => {
                     </Col>
                     <Col>
                         <h6 className="mt-4 text-success">${product.price}</h6>
-                        <span>quantity: 1</span>
+                        <span>quantity: 1</span><br/>
+                        <button className="delete-btn mt-2" onClick={() => handleRemoveBtn(_id)}><FontAwesomeIcon icon={faTrashAlt} /></button>
                     </Col>
                     <Col>
                         <small><FontAwesomeIcon icon={faClock} /> Ordered: {new Date(orderTime).toDateString('dd/mm/yy')}</small><br/>

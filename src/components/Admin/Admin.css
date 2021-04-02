@@ -1,6 +1,13 @@
 .admin-menu{
-    border: 1px solid lightgray;
+    background-color: rgb(0, 41, 0);
 }
 .admin-container{
     border: 1px solid lightgray;
+}
+.admin-menu li{
+    padding: 7px;
+    padding-left: 15px;
+}
+.admin-menu li:hover{
+    background-color: rgb(12, 54, 12);
 }
