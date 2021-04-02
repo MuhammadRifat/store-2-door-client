@@ -18,6 +18,6 @@
 15. Used react router and private route for more efficient and good performance.
 16. Finally, in this website, used node js for controlling server side and create many API for store, load, update and delete products from mongodb database.
 
-WebSite Link:
-1. Client-Side: https://store-2-door-simple.web.app/
-2. Server-Side: https://pumpkin-pudding-55877.herokuapp.com/
+### WebSite Link:
+ https://store-2-door-simple.web.app/
+
